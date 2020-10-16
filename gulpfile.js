@@ -12,10 +12,11 @@ watchFiles = () => {
     browserSync.init({
         server: 'build', notify: false
     })
-    watch(['app/sass/**/*.sass', 'app/sass/**/*.scss'], styles)
+    watch('app/sass/**/*.+(sass|scss)', styles)
     watch('app/*.html', html)
     watch('app/img/**/*', images)
     watch('app/js/**/*.js', scripts)
 }
 
-module.exports.default = series(clean, parallel(styles, html, images, scripts), watchFiles)
+exports.build = series(clean, parallel(styles, html, images, scripts))
+exports.default = series(clean, parallel(styles, html, images, scripts, watchFiles))

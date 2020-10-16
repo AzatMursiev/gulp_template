@@ -4,7 +4,7 @@ autoprefixer = require('gulp-autoprefixer')
 sourcemaps = require('gulp-sourcemaps')
 
 module.exports = styles = () => {
-    return src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
+    return src('app/sass/**/*.+(sass|scss)')
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer())
