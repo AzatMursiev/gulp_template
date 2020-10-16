@@ -12,7 +12,7 @@ watchFiles = () => {
     browserSync.init({
         server: 'build', notify: false
     })
-    watch('app/sass/**/*.scss', styles)
+    watch(['app/sass/**/*.sass', 'app/sass/**/*.scss'], styles)
     watch('app/*.html', html)
     watch('app/img/**/*', images)
     watch('app/js/**/*.js', scripts)
